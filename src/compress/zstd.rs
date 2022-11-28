@@ -11,6 +11,20 @@ pub struct ZstdCompressor {
     level: i32,
 }
 
+impl ZstdCompressor {
+    pub fn new(level: i32) -> Self {
+        Self {
+            level,
+        }
+    }
+}
+
+impl Default for ZstdCompressor {
+    fn default() -> Self {
+        Self::new(3)
+    }
+}
+
 #[cfg(feature = "zstd")]
 impl Compressor for ZstdCompressor {
     fn is_supported() -> bool {

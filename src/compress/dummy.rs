@@ -15,6 +15,12 @@ impl DummyCompressor {
     }
 }
 
+impl Default for DummyCompressor {
+    fn default() -> Self {
+        Self::new(false)
+    }
+}
+
 impl Compressor for DummyCompressor {
     fn is_supported() -> bool {
         true
